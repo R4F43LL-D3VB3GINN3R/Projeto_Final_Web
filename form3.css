@@ -1,0 +1,266 @@
+.layout {
+    width: 1000px;
+    height: 800px;
+  
+    display: grid;
+    grid:
+      "up up up" 1fr
+      "mid mid mid" 1fr
+      "partner1 partner2 partner3" 1fr
+      "partner4 partner5 partner6" 1fr
+      "footer footer footer" 1fr
+      / 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .up { grid-area: up; }
+  .mid { grid-area: mid; }
+  .partner1 { grid-area: partner1; }
+  .partner2 { grid-area: partner2; }
+  .partner3 { grid-area: partner3; }
+  .partner4 { grid-area: partner4; }
+  .partner5 { grid-area: partner5; }
+  .partner6 { grid-area: partner6; }
+  .footer { grid-area: footer; }
+
+  body {
+	width: 70%;
+    background-image: url("../Imagens/background_index.jpg");
+	margin: 0 auto; 
+	font-family: 'Montserrat', sans-serif;	
+	font-weight: 400; 
+	font-size: 16px;
+	text-align: center;
+	clear: both;
+    background-size: cover; 
+}
+
+nav {
+	left:0;
+	width: 100%;
+	background-color: #000000;
+	height: 40px;
+	border-radius: 20px;
+    border: 5px solid rgb(3, 74, 10);
+  font-family: 'Orbitron', sans-serif;
+  font-style: italic;
+  margin-top: 50px;
+}
+
+nav:hover {
+    border: 5px solid rgb(62, 242, 56);
+    background-color: #201e1e;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0 auto;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 10px 60px 10px 0;
+	height: 20px;
+}
+
+.up nav ul a, nav ul a:visited {
+	color: #0fb03f;
+	border-radius: 5px;
+    text-decoration: none; 
+}
+
+.up nav ul a:hover, nav ul a:active {
+	color: #71f74f;
+    font-weight: bold;
+}
+
+.mid {
+
+    background: black;
+    padding: 30px;
+    border: 5px solid green;
+    transition: 0.3s;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    margin: auto; /* Centraliza horizontalmente */
+    
+    
+}
+
+.mid:hover {
+    border-color:rgb(62, 242, 56);
+    background-image: url("../Imagens/greenstar3.gif");
+    background-size: cover; 
+}
+
+label {
+    color:rgb(62, 242, 56);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+}
+
+input {
+    width: 350px; 
+    border: 1px solid rgb(22, 63, 23);
+    color: rgb(1, 255, 86);
+    background-color: #000000;
+    margin: 10px 0; 
+    padding: 5px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border 0.3s;
+   }
+  
+   input:hover {
+    border-color: rgb(7, 255, 19); 
+    border-radius: 20px;
+    background-color: #201e1e;
+  }
+  
+  input:focus {
+    border-color: rgb(7, 255, 19); 
+    outline: none; 
+    background-color: #201e1e;
+  }
+
+  textarea {
+    width: 320px;
+    border: 1px solid green;
+    background-color: #000000;
+    color: #08ff31;
+    cursor: pointer;
+    transition: border 0.3;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+  }
+  
+  textarea:hover {
+    border-color: rgb(7, 255, 19); 
+    border-radius: 20px;
+    background-color: #201e1e;
+  }
+  
+  textarea:focus {
+    border-color: rgb(7, 255, 19); 
+    outline: none; 
+    background-color: #201e1e;
+  }
+
+  button {
+
+    width: 200px;
+    height: 50px;
+    color:rgb(1, 255, 86);
+    background-color: black;
+    border-radius: 20px;
+    border: 2px solid green;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #201e1e;
+    border: 5px solid;
+  }
+
+  .partner1, .partner2, .partner3, .partner4, .partner5, .partner6 {
+    background-color: #000000;
+    border-radius: 20px;
+    border: 5px solid green;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 30px;
+    color: #00FF00; /* Cor do texto verde */
+    -webkit-text-stroke: 1.2px #000000; /* Adiciona uma borda preta ao texto */
+    padding: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    width: 300px;
+    height: 250px;
+    background-size: contain; 
+    background-position: center;
+  }
+
+  .partner1:hover, .partner2:hover, .partner3:hover, .partner4:hover, .partner5:hover, .partner6:hover{
+    border-color: rgb(7, 255, 19); 
+    background-color: #201e1e;
+  }
+
+.partner1 {
+    background-image: url("../Imagens/logo1.gif");
+}
+
+.partner2 {
+    background-image: url("../Imagens/logo2.gif");
+}
+
+.partner3 {
+    background-image: url("../Imagens/logo3.gif");
+}
+
+.partner4 {
+    background-image: url("../Imagens/logo4.gif");
+}
+
+.partner5 {
+    background-image: url("../Imagens/logo5.gif");
+}
+
+.partner6 {
+    background-image: url("../Imagens/logo6.gif");
+}
+
+.footer { 
+    grid-area: footer; 
+    float: left;
+      width: 100%;
+      background-color: #000000;
+      height: 60px;
+      border-radius: 5px;
+      margin: 2% 0;
+      margin-top: 3%;
+  }
+  
+  .footer p {
+      font-size: 75%;
+      text-align: center; 
+      color: #FFFFFF;
+  
+  }
+
+  content {
+	text-align: justify;
+}
+
+p {
+	font-weight: 300;
+}
+
+.content h3 {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+    color: #00ff5e;
+}
+
+a:link, a:visited {
+	color: #00ff04;
+}
+
+a:hover, a:active {
+	color: #00ff1e;
+}
+
+
+
+  
