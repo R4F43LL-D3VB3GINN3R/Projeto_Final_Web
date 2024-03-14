@@ -1,0 +1,258 @@
+body {
+	width: 70%;
+    background-image: url("../Imagens/background_index.jpg");
+	margin: 0 auto; 
+	font-family: 'Montserrat', sans-serif;	
+	font-weight: 400; 
+	font-size: 16px;
+	text-align: center;
+	clear: both;
+  background-size: cover; 
+}
+
+nav {
+	left:0;
+	width: 100%;
+	background-color: #000000;
+	height: 40px;
+	border-radius: 20px;
+  border: 5px solid rgb(3, 74, 10);
+  font-family: 'Orbitron', sans-serif;
+  font-style: italic;
+  margin-top: 50px;
+}
+
+nav:hover {
+    border: 5px solid rgb(62, 242, 56);
+    background-color: #201e1e;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0 auto;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 10px 60px 10px 0;
+	height: 20px;
+}
+
+.main_header nav ul a, nav ul a:visited {
+	color: #0fb03f;
+	border-radius: 5px;
+  text-decoration: none; /* Remover sublinhado */ 
+}
+
+.main_header nav ul a:hover, nav ul a:active {
+	color: #71f74f;
+  font-weight: bold;
+}
+
+.layout {
+  width: 1000px;
+  height: 700px;
+
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+}
+
+.header { grid-area: header; }
+
+.main { 
+  grid-area: main;
+  border: 5px solid rgb(14, 65, 23);
+  width: 100%; 
+  background-color: #000000;
+  text-align: center; 
+  padding: 20px; 
+  background-size: cover; 
+  transition: border 0.3s;
+}
+
+.main:hover{
+  border: 5px solid rgb(2, 247, 47);
+  background-image: url("../Imagens/greenstar.gif");
+  border-radius: 20px;
+}
+ 
+ label {
+  color:rgb(62, 242, 56);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  font-size: 15px;
+ }
+
+ input {
+  display: block; 
+  margin: 0 auto; 
+  width: 250px;
+  border: 1px solid rgb(22, 63, 23);
+  color: rgb(1, 255, 86);
+  background-color: #000000;
+  padding: 5px; 
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  cursor: pointer;
+  transition: border 0.3s;
+ }
+
+ input:hover {
+  border-color: rgb(7, 255, 19); 
+  border-radius: 20px;
+  background-color: #201e1e;
+}
+
+input:focus {
+  border-color: rgb(7, 255, 19); 
+  outline: none; 
+  background-color: #201e1e;
+}
+
+input[type="file"] {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding: 10px 15px;
+  color: #08ff31;
+  background-color: #000000;
+  border: 1px solid green;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+
+input[type="file"]:hover {
+  border-color: rgb(7, 255, 19); 
+  border-radius: 20px;
+  background-color: #201e1e;
+}
+
+#select_city, #select_nationality {
+  margin-top: 10px;
+  display: block;
+  height: 40px;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid rgb(22, 63, 23);
+  color: rgb(1, 255, 86);
+  background-color: #000000;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid green;
+  transition: border 0.3s;
+  margin: 0 auto; 
+}
+
+#select_city:hover, #select_nationality:hover {
+  border-color:rgb(1, 255, 86);
+  border-radius: 20px;
+  background-color: #201e1e;
+}
+
+#select_city:focus, #select_nationality:focus {
+  border-color:rgb(1, 255, 86);
+}
+
+#select_city option, #select_nationality option{
+  color: rgb(1, 255, 86);
+  background-color: #201e1e;
+  border: 2px solid #201e1e;
+  border-radius: 20px;
+}
+
+textarea {
+  width: 900px;
+  border: 1px solid green;
+  background-color: #000000;
+  color: #08ff31;
+  cursor: pointer;
+  transition: border 0.3;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  font-size: 15px;
+}
+
+textarea:hover {
+  border-color: rgb(7, 255, 19); 
+  border-radius: 20px;
+  background-color: #201e1e;
+}
+
+textarea:focus {
+  border-color: rgb(7, 255, 19); 
+  outline: none; 
+  background-color: #201e1e;
+}
+
+button {
+
+  width: 200px;
+  height: 50px;
+  color:rgb(1, 255, 86);
+  background-color: black;
+  border-radius: 20px;
+  border: 2px solid green;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #201e1e;
+  border: 5px solid;
+}
+
+.footer { 
+  grid-area: footer; 
+  float: left;
+	width: 100%;
+	background-color: #000000;
+	height: 60px;
+	border-radius: 5px;
+	margin: 2% 0;
+	margin-top: 3%;
+}
+
+.footer p {
+	font-size: 75%;
+	text-align: center; 
+	color: #FFFFFF;
+
+}
+
+content {
+	text-align: justify;
+}
+
+p {
+	font-weight: 300;
+}
+
+.content h3 {
+	text-align: center;
+
+}
+
+a {
+	text-decoration: none;
+    color: #00ff5e;
+}
+
+a:link, a:visited {
+	color: #00ff04;
+}
+
+a:hover, a:active {
+	color: #00ff1e;
+}
+
