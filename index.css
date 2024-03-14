@@ -1,0 +1,156 @@
+body {
+	width: 70%;
+    background-image: url("../Imagens/background_index.jpg");
+	margin: 0 auto; 
+	font-family: 'Montserrat', sans-serif;	
+	font-weight: 400; 
+	font-size: 16px;
+	text-align: center;
+	clear: both;
+    background-size: cover; 
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+    color: #26ff00;
+    background-color: #000;
+    border: 2px solid lime;
+    border-radius: 20px;
+}
+
+a {
+	text-decoration: none;
+    color: #00ff5e;
+}
+
+a:link, a:visited {
+	color: #00ff04;
+}
+
+a:hover, a:active {
+	color: #00ff1e;
+}
+
+img {
+	width: 40%;
+	height: auto;
+	margin: 2% 0;
+}
+
+nav {
+	left:0;
+	width: 100%;
+	background-color: #000000;
+	height: 40px;
+	border-radius: 20px;
+    border: 5px solid rgb(3, 74, 10);
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+}
+
+nav:hover {
+    border: 5px solid rgb(62, 242, 56);
+    background-color: #201e1e;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0 auto;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 10px 60px 10px 0;
+	height: 20px;
+}
+
+.main_header nav ul a, nav ul a:visited {
+	color: #0fb03f;
+	border-radius: 5px;
+}
+
+.main_header nav ul a:hover, nav ul a:active {
+	color: #71f74f;
+    font-weight: bold;
+}
+
+.banner {
+	margin-top: 2%;
+    
+}
+
+.banner img {
+	width: 70%;
+	height: auto;
+	opacity: 1;
+    color: rgb(9, 255, 0);
+    background-color: #00ff37;
+    
+    
+}
+
+.banner img:hover {
+	opacity: .5;
+	transition: ease 1s;
+}
+
+.content {
+	width: 27%;
+	float: left;
+	padding: 0 3%;
+	margin-top: 2%;
+	border: 2px solid #095e28;
+	height: 420px;
+	transition: background-color 0.5s ease;
+    background-color: #000;
+    color: #02ff3d;
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+  
+}
+
+.content:hover {
+	background-color: #1b1e1b;
+    font-weight: bold;
+    color: #aff60a;
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+    border: 2px solid #00ff5e;
+    font-weight: bold;
+    border-radius: 70px;
+    font-size: 15px;
+}
+
+content {
+	text-align: justify;
+}
+
+p {
+	font-weight: 300;
+}
+
+.content h3 {
+	text-align: center;
+
+}
+
+.mainfooter {
+	float: left;
+	width: 100%;
+	background-color: #000000;
+	height: 60px;
+	border-radius: 5px;
+	margin: 2% 0;
+	margin-top: 3%;
+}
+
+.mainfooter p {
+	font-size: 75%;
+	text-align: center; 
+	color: #FFFFFF;
+    border: 1px solid greenyellow;
+    border-radius: 20px;
+
+}
+
