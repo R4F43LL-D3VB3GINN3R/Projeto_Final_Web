@@ -15,9 +15,12 @@
 <body>
     <% 
         boolean msg = false;
+        
         // Verifica se o formulário foi submetido
         if (request.getMethod().equals("POST")) {
-            try {
+        
+            try {           
+                //Guarda os dados do formulário.
                 String firstName = request.getParameter("name");
                 String lastName = request.getParameter("surname");
                 String email = request.getParameter("email");
@@ -25,17 +28,18 @@
                 String nationality = request.getParameter("nationality");
                 String city = request.getParameter("city");
                 String message = request.getParameter("message");
-
+                
+                // Se algum campo estiver vazio, exibe uma mensagem de erro
                 if (firstName.equals("") || lastName.equals("") || email.equals("") || phone.equals("") || nationality.equals("") || city.equals("") || message.equals("")) {
-                    // Se algum campo estiver vazio, exibe uma mensagem de erro
                     msg = false;
                 } else {
+                
                     // Registrar o driver JDBC e estabelecer a conexão com o banco de dados
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_devsync", "root", "");
 
                     // Preparar a declaração SQL usando um PreparedStatement para evitar injeção de SQL
-                    String sql = "INSERT INTO tab_cadastro (primeiro_nome, ultimo_nome, email, telefone, nacionalidade, cidade, mensagem) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO tab_candidatura (primeiro_nome, ultimo_nome, email, telefone, nacionalidade, cidade, mensagem, atualizacao) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
                     PreparedStatement stmt = conn.prepareStatement(sql);
 
                     stmt.setString(1, firstName);
@@ -49,9 +53,11 @@
                     // Executar a inserção
                     int rowsAffected = stmt.executeUpdate();
 
+                    //Encerra o leitor e a conexão.
                     stmt.close();
                     conn.close();
-
+                    
+                    //Se mais de uma linha da tabela for afetada...
                     if (rowsAffected > 0) {
                         msg = true;
                     }
