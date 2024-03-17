@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,600,700" rel="stylesheet">
@@ -23,72 +23,74 @@
       </nav>
     </div>
     <div class="main">
-      <label for="lbl_name">Primeiro Nome: </label>
-      <input type="text" id="txt_name" name="name">
-      <br><br>
-      <label for="lbl_surname">Último Nome: </label>
-      <input type="text" id="txt_surname" name="surname">
-      <br><br>
-      <label for="lbl_email">Email: </label>
-      <input type="text" id="txt_email" name="email">
-      <br><br>
-      <label for="lbl_phone">Phone: </label>
-      <input type="text" id="txt_phone" name="phone">
-      <br><br>
-      <label for="lbl_nationality">Nacionalidade: </label>
-      <select id="select_nationality" name="nationality">
-        <option value="uk">Reino Unido</option>
-        <option value="franca">França</option>
-        <option value="alemanha">Alemanha</option>
-        <option value="italia">Itália</option>
-        <option value="espanha">Espanha</option>
-        <option value="portugal">Portugal</option>
-        <option value="holanda">Holanda</option>
-        <option value="suica">Suíça</option>
-        <option value="belgica">Bélgica</option>
-        <option value="suecia">Suécia</option>
-        <option value="dinamarca">Dinamarca</option>
-        <option value="noruega">Noruega</option>
-        <option value="finlandia">Finlândia</option>
-        <option value="polonia">Polônia</option>
-        <option value="russia">Rússia</option>  
-        <option value="hungria">Hungria</option>
-        <option value="austria">Áustria</option>
-        <option value="grecia">Grécia</option>
-        <option value="repcheca">República Tcheca</option>
-      </select>
-      <br><br>
-      <label for="lbl_city">Cidade: </label>
-      <select id="select_city" name="city">
-        <option value="lisboa">Lisboa</option>
-        <option value="porto">Porto</option>
-        <option value="braga">Braga</option>
-        <option value="coimbra">Coimbra</option>
-        <option value="faro">Faro</option>
-        <option value="aveiro">Aveiro</option>
-        <option value="sintra">Sintra</option>
-        <option value="guimaraes">Guimarães</option>
-        <option value="setubal">Setúbal</option>
-        <option value="viseu">Viseu</option>
-        <option value="braganca">Bragança</option>
-        <option value="evora">Évora</option>
-        <option value="ponta-delgada">Ponta Delgada</option>
-        <option value="farol">Farol</option>
-        <option value="lagoa">Lagoa</option>
-        <option value="pombal">Pombal</option>
-        <option value="tavira">Tavira</option>
-        <option value="funchal">Funchal</option>
-        <option value="portimao">Portimão</option>
-        <option value="albufeira">Albufeira</option>
-      </select>
-      <br><br>
-      <label for="lbl_cv">Currículo: </label>
-      <input type="file" id="file_cv" name="cv"> 
-      <br><br>
-      <label for="lbl_message">Mensagem: </label>
-      <textarea id="txt_message" name="message" rows="5" maxlength="500"></textarea>
-      <br><br>
-      <button type="submit">Enviar</button>
+        <form action="form1.jsp" method="post">
+            <label for="lbl_name">Primeiro Nome: </label>
+            <input type="text" id="txt_name" name="name">
+            <br><br>
+            <label for="lbl_surname">Último Nome: </label>
+            <input type="text" id="txt_surname" name="surname">
+            <br><br>
+            <label for="lbl_email">Email: </label>
+            <input type="text" id="txt_email" name="email">
+            <br><br>
+            <label for="lbl_phone">Phone: </label>
+            <input type="text" id="txt_phone" name="phone">
+            <br><br>
+            <label for="lbl_nationality">Nacionalidade: </label>
+            <select id="select_nationality" name="nationality">
+              <option value="uk">Reino Unido</option>
+              <option value="franca">França</option>
+              <option value="alemanha">Alemanha</option>
+              <option value="italia">Itália</option>
+              <option value="espanha">Espanha</option>
+              <option value="portugal">Portugal</option>
+              <option value="holanda">Holanda</option>
+              <option value="suica">Suíça</option>
+              <option value="belgica">Bélgica</option>
+              <option value="suecia">Suécia</option>
+              <option value="dinamarca">Dinamarca</option>
+              <option value="noruega">Noruega</option>
+              <option value="finlandia">Finlândia</option>
+              <option value="polonia">Polônia</option>
+              <option value="russia">Rússia</option>  
+              <option value="hungria">Hungria</option>
+              <option value="austria">Áustria</option>
+              <option value="grecia">Grécia</option>
+              <option value="repcheca">República Tcheca</option>
+            </select>
+            <br><br>
+            <label for="lbl_city">Cidade: </label>
+            <select id="select_city" name="city">
+              <option value="lisboa">Lisboa</option>
+              <option value="porto">Porto</option>
+              <option value="braga">Braga</option>
+              <option value="coimbra">Coimbra</option>
+              <option value="faro">Faro</option>
+              <option value="aveiro">Aveiro</option>
+              <option value="sintra">Sintra</option>
+              <option value="guimaraes">Guimarães</option>
+              <option value="setubal">Setúbal</option>
+              <option value="viseu">Viseu</option>
+              <option value="braganca">Bragança</option>
+              <option value="evora">Évora</option>
+              <option value="ponta-delgada">Ponta Delgada</option>
+              <option value="farol">Farol</option>
+              <option value="lagoa">Lagoa</option>
+              <option value="pombal">Pombal</option>
+              <option value="tavira">Tavira</option>
+              <option value="funchal">Funchal</option>
+              <option value="portimao">Portimão</option>
+              <option value="albufeira">Albufeira</option>
+            </select>
+            <br><br>
+            <label for="lbl_cv">Currículo: </label>
+            <input type="file" id="file_cv" name="cv"> 
+            <br><br>
+            <label for="lbl_message">Mensagem: </label>
+            <textarea id="txt_message" name="message" rows="5" maxlength="500"></textarea>
+            <br><br>
+            <input type="submit" value="Enviar">Enviar>
+        </form>
     </div>
     <div class="footer">
       <footer class="mainfooter">
