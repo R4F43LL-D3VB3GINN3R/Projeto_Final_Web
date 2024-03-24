@@ -1,0 +1,140 @@
+.layout {
+    width: 1000px;
+    height: 700px;
+  
+    display: grid;
+    grid:
+      ". . ." 1fr
+      ". body ." 1fr
+      ". . ." 1fr
+      / 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .body { grid-area: body; }
+
+  body {
+    background-color: black;
+    display: flex; /* Usa flexbox para alinhar verticalmente */
+    flex-direction: column; /* Coloca os itens um em cima do outro */
+    align-items: center; /* Alinha os itens horizontalmente no centro */
+  }
+
+  .body {
+    background-color: black;
+    border: 3px solid rgb(17, 51, 17);
+    width: 500px;
+    height: 600px;
+    transition: 0.3s;
+    display: flex; /* Usa flexbox para alinhar verticalmente */
+    flex-direction: column; /* Coloca os itens um em cima do outro */
+    align-items: center; /* Alinha os itens horizontalmente no centro */
+  }
+
+  .body:hover {
+    border: 5px solid lawngreen;
+    background-color: rgb(31, 30, 30);
+    border-radius: 20px;
+  }
+
+  #admin_label {
+    color: rgb(17, 73, 17);
+
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .body:hover #admin_label {
+   color: lightgreen;
+   transition: 0.3s;
+}
+
+.body:hover img {
+    border: 5px solid lime;
+}
+
+.body:hover h2 {
+    color: lightgreen;
+}
+
+img {
+    width: 200px;
+    border: 5px solid rgb(8, 61, 8);
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.body-into {
+    height: 400px;
+    width: 400px;
+}   
+
+h2 {
+    color: green;
+    transition: 0.3s;
+}
+
+#h2-1 {
+    margin-left: 30px;
+    margin-top: 100px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#h2-2 {
+    margin-left: 30px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+input {
+    display: block; 
+    width: 330px; 
+    border: 1px solid rgb(22, 63, 23);
+    color: rgb(1, 255, 86);
+    background-color: #000000;
+    margin: 10px 0; 
+    padding: 5px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border 0.3s;
+    margin-left: 30px;
+   }
+  
+   input:hover {
+    border-color: rgb(7, 255, 19); 
+    border-radius: 20px;
+    background-color: #201e1e;
+  }
+  
+  input:focus {
+    border-color: rgb(7, 255, 19); 
+    outline: none; 
+    background-color: #201e1e;
+  }
+
+  .submit-button {
+    background-color: #000000;
+    color: rgb(14, 52, 11);
+    font-size: 16px;
+    border-radius: 5px;
+    border: 3px solid rgb(22, 63, 23);
+    width: 200px;
+    margin: 30px auto 0; /* Margem superior de 20px, centraliza horizontalmente */
+}
+
+.submit-button:hover {
+    background-color: #202425;
+    cursor: pointer;
+    color: lightgreen;
+    border: 7px solid;
+}
+
+
+
+
+
+  
