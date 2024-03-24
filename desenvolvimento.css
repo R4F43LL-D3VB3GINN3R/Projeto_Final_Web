@@ -1,0 +1,147 @@
+.layout {
+    width: 1000px;
+    height: 700px;
+  
+    display: grid;
+    grid:
+      "menu1 body body" 1fr
+      "menu2 body body" 1fr
+      "menu3 body body" 1fr
+      "menu4 body body" 1fr
+      "menu5 body body" 1fr
+      "menu6 body body" 1fr
+      / 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .menu1 { grid-area: menu1; }
+  .body { grid-area: body; }
+  .menu2 { grid-area: menu2; }
+  .menu3 { grid-area: menu3; }
+  .menu4 { grid-area: menu4; }
+  .menu5 { grid-area: menu5; }
+  .menu6 { grid-area: menu6; }
+
+  * {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  body {
+    background-color: black;
+    display: flex; /* Usa flexbox para alinhar verticalmente */
+    flex-direction: column; /* Coloca os itens um em cima do outro */
+    align-items: center; /* Alinha os itens horizontalmente no centro */
+  }
+
+  .body {
+    border: 2px solid rgb(22, 85, 22);
+    background-color: rgb(26, 31, 28);
+    border-radius: 20px;
+  }
+
+  .body:hover {
+    border: 4px solid rgb(0, 252, 0);
+    background-color: rgb(32, 30, 30);
+  }
+
+  .menu1, .menu2, .menu3, .menu4, .menu5, .menu6 {
+    background-color: black;
+    border: 2px solid rgb(22, 85, 22);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  .menu1:hover, .menu2:hover, .menu3:hover, .menu4:hover, .menu5:hover, .menu6:hover {
+    background-color: black;
+    border: 4px solid rgb(0, 252, 0);
+    background-color: rgb(32, 30, 30);
+  }
+
+  .menu1, .menu2, .menu3, .menu4, .menu5, .menu6 {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    
+  }
+
+  .menu1 a, .menu2 a, .menu3 a, .menu4 a, .menu5 a, .menu6 a {
+    text-decoration: none; 
+    color: rgb(22, 85, 22);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.menu1:hover a, .menu2:hover a, .menu3:hover a, .menu4:hover a, .menu5:hover a, .menu6:hover a {
+    color:rgb(0, 252, 0);
+}
+
+.layout2 {
+  width: 650px;
+  height: 680px;
+
+  display: grid;
+  grid:
+    "name5 name2 name2" 1fr
+    "name6 name3 name3" 1fr
+    "name7 name4 name4" 1fr
+    / 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.name5 { grid-area: name5; }
+.name2 { grid-area: name2; }
+.name6 { grid-area: name6; }
+.name3 { grid-area: name3; }
+.name7 { grid-area: name7; }
+.name4 { grid-area: name4; }
+
+.layout2 {
+  margin-top: 9px;
+}
+
+.name5, .name6, .name7{
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-color: green;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  cursor: pointer;
+}
+
+.name5:hover, .name6:hover, .name7:hover{
+  border: 6px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-color: lawngreen;
+}
+
+.name2, .name3, .name4{
+  border: 3px solid green;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  color: green;
+  font-size: 25px;
+}
+
+.name2:hover, .name3:hover, .name4:hover{
+  border: 4px solid rgb(0, 252, 0);
+  border-radius: 20px;
+  color: lime;
+}
+
+.body {
+  background-color: black;
+  display: flex; /* Usa flexbox para alinhar verticalmente */
+  flex-direction: column; /* Coloca os itens um em cima do outro */
+  align-items: center; /* Alinha os itens horizontalmente no centro */
+  margin-left: 3px;
+}
