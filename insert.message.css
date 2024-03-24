@@ -1,0 +1,54 @@
+h1 {
+    color:rgb(0, 252, 0);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  #message_div {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column; /* Alteração para colocar os elementos em coluna */
+    align-items: center; /* Alinha os elementos horizontalmente ao centro */
+    width: 700px;
+    height: 200px;
+  }
+
+  #message_div:hover {
+    border: 3px solid rgb(0, 255, 0);
+    background-color: #222020;
+    border-radius: 20px;
+  }
+  
+  #buttonmessage {
+    display: block; 
+    width: 200px; 
+    height: 70px;
+    border: 2px solid rgb(22, 63, 23);
+    border-radius: 20px;
+    color: rgb(1, 255, 86);
+    background-color: #000000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border 0.3s;
+    margin-top: 10px;
+    font-size: 20px;
+    transition: 0.2s;
+   }
+
+   #buttonmessage:hover {
+    border: 5px solid rgb(5, 239, 9);
+    background-color: #222020;
+    font-size: 30px;
+   }
+
+   body {
+    background-color: #000000;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+    margin: 0; /* Remove margens padrão do body */
+   }
