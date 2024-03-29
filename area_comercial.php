@@ -54,7 +54,7 @@
                 <input type="text" id="email" name="email" value="<?php echo $email; ?>">
                 <label for="phone" id=lbl_phone>Phone:</label>
                 <input type="text" id="phone" name="phone" value="<?php echo $phone; ?>">
-                <label for="aplicacao" id="lbl_id">Aplicação:</label>
+                <label for="aplicacao" id="lbl_id" ReadOnly="true">Aplicação:</label>
                 <input type="text" id="aplicacao" name="aplicacao" value="<?php echo $aplicacao; ?>">
                 <label for="id" id="lbl_id">Número:</label>
                 <input type="text" id="id" name="id" ReadOnly="true" value="<?php echo $id; ?>">
