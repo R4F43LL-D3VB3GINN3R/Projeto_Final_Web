@@ -123,16 +123,16 @@ color: rgb(32, 95, 32);
 background-color: black;
 border: 2px solid rgb(22, 85, 22);
 border-radius: 10px;
-width: 300px;
-height: 100px;
+width: 160px;
+height: 50px;
 font-size: 30px;
-margin-top: 100px;
+margin-top: 30px;
 cursor: pointer;  
 }
 
  button:hover {
   background-color: rgb(35, 32, 32);
-  border: 3px solid rgb(0, 255, 0);
+  border: 5px solid rgb(0, 255, 0);
   color: rgb(0, 255, 0);
 }
 
