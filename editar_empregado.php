@@ -83,7 +83,7 @@ if ($result->num_rows > 0) {
     <h2>Estado</h2>
   </div>
   <div class="name2">
-    <form action="empregado_cadastrado.php" method="post">
+    <form action="empregado_editado.php" method="post">
         <input type="text" name="nif" maxlength="9" value="<?php echo $nif; ?>">
         <input type="text" name="nome" value="<?php echo $nome; ?>">
         <input type="text" name="apelido" value="<?php echo $apelido; ?>">
@@ -113,7 +113,7 @@ if ($result->num_rows > 0) {
         <input type="text" name="cargo" value="<?php echo $cargo; ?>">
         <select name="contrato" id="contrato" value="<?php echo $contrato; ?>">
             <option value="Recibo_verde">Recibo Verde</option>
-            <option value="Prestação_de_serviços">Jogos</option>  
+            <option value="Prestação_de_serviços">Prestação de Serviços</option>  
         </select>
         <input type="text" name="salario" value="<?php echo $salario; ?>">
         <input type="text" name="data_contratacao", value="<?php echo $data_contratacao; ?>">
