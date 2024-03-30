@@ -112,8 +112,8 @@
             </select>
             <input type="text" name="cargo" value="<?php echo $cargo; ?>">
             <select name="contrato" id="contrato" value="<?php echo $contrato; ?>">
-                <option value="Recibo verde" <?php if ($contrato == "Recibo verde") echo "selected"; ?>>Recibo Verde</option>
-                <option value="Prestação de serviços" <?php if ($contrato == "Prestação de serviços") echo "selected"; ?>>Prestação de Serviços</option>  
+                <option value="Recibo Verde" <?php if ($contrato == "Recibo Verde") echo "selected"; ?>>Recibo Verde</option>
+                <option value="Prestação de Serviço" <?php if ($contrato == "Prestação de Serviço") echo "selected"; ?>>Prestação de Serviço</option>  
             </select>
             <input type="text" name="salario" value="<?php echo $salario; ?>">
             <input type="text" name="data_contratacao", value="<?php echo $data_contratacao; ?>">
