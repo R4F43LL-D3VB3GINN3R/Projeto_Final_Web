@@ -59,7 +59,7 @@
         <input type="text" name="cargo">
         <select name="contrato" id="contrato">
             <option value="Recibo_verde">Recibo Verde</option>
-            <option value="Prestação_de_serviços">Jogos</option>  
+            <option value="Prestação_de_serviços">Prestação de Serviços</option>  
         </select>
         <input type="text" name="salario">
         <input type="text" name="data_contratacao", value= "aaaa/mm/dd">
