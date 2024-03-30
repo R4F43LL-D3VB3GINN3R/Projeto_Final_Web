@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/novo_empregado.css">
-    <title>Devsync</title>
+    <title>DevSync-Admin</title>
+    <link rel="icon" href="Imagens/logo_icon.jpg" type="image/x-icon">
 </head>
 <body>
 <section class="layout">
@@ -28,44 +29,44 @@
     <h2>Estado</h2>
   </div>
   <div class="name2">
-    <form action="empregado_cadastrado" method="post">
+    <form action="empregado_cadastrado.php" method="post">
         <input type="text" name="nif" maxlength="9">
         <input type="text" name="nome">
         <input type="text" name="apelido">
         <input type="text" name="nome_completo">
         <input type="text" name="data_nascimento" value= "aaaa/mm/dd">
         <select name="sexo" id="sexo">
-            <option value="masculino">M</option>
-            <option value="feminino">F</option>
-            <option value="outro">O</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="O">Outro</option>
         </select>
         <input type="text" name="telefone" maxlength="9">
         <input type="email" name="email">
         <input type="text" name="endereco">
         <select name="estado_civil" id="estado_civil">
-            <option value="solteiro">Solteiro</option>
-            <option value="casado">Casado</option>
-            <option value="união_estável">União Estável</option>
-            <option value="divorciado">Divorciado</option>
-            <option value="viúvo">Viúvo</option>
+            <option value="Solteiro">Solteiro</option>
+            <option value="Casado">Casado</option>
+            <option value="União Estável">União Estável</option>
+            <option value="Divorciado">Divorciado</option>
+            <option value="Viúvo">Viúvo</option>
         </select>
         <input type="text" name="dependentes">
         <select name="departamento" id="departamento">
-            <option value="full-stack">Full-Stack</option>
-            <option value="jogos">Jogos</option>
-            <option value="cyber-security">Cyber-Security</option>
+            <option value="Full-stack">Full-Stack</option>
+            <option value="Jogos">Jogos</option>
+            <option value="Cyber-security">Cyber-Security</option>
         </select>
         <input type="text" name="cargo">
         <select name="contrato" id="contrato">
-            <option value="recibo_verde">Recibo Verde</option>
-            <option value="prestação_de_serviços">Jogos</option>  
+            <option value="Recibo_verde">Recibo Verde</option>
+            <option value="Prestação_de_serviços">Jogos</option>  
         </select>
         <input type="text" name="salario">
         <input type="text" name="data_contratacao", value= "aaaa/mm/dd">
         <select name="estado" id="estado">
-            <option value="ativo">Ativo</option>
-            <option value="ferias">Férias</option>  
-            <option value="inativo">Inativo</option>  
+            <option value="Ativo">Ativo</option>
+            <option value="Ferias">Férias</option>  
+            <option value="Inativo">Inativo</option>  
         </select>
         <input id="inserir" type="submit" value="Cadastrar">
     </form>
