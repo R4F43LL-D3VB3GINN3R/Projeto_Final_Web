@@ -35,7 +35,7 @@
 
             $conn = new mysqli($hostname, $username, $pass, $database);
 
-            $sql = "SELECT * FROM tab_funcionario";
+            $sql = "SELECT * FROM tab_funcionario WHERE estado = 'Ativo'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
