@@ -153,3 +153,7 @@ thead, th{
 td {
   border: 1px solid lime;
 }
+
+#Respondido {
+  width: 200px;
+}
