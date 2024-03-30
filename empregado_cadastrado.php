@@ -42,6 +42,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param('ssssdsssssssssids', $nif, $nome, $apelido, $nome_completo, $data_nascimento, $sexo, $telefone, $email, $endereco, $estado_civil, $dependentes, $departamento, $cargo, $contrato, $salario, $data_contratacao, $estado);
     $stmt->execute();
 
+    $sql = "SELECT * FROM tab_funcionario WHERE nome = '$nome'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+          
+            while ($row = $result->fetch_assoc()) {
+
+                $id = $row['id']; 
+                
+            }
+
+        }
+
+    $stmt = $conn->prepare("INSERT INTO tab_pagamento (id_funcionario) VALUES (?)");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+
     if ($stmt->affected_rows > 0) {
 
     ?>
@@ -53,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <script>
             function redirect1() {
 
-                window.location.href = "novo_empregado.php";
+                window.location.href = "cadastro_funcionarios.php";
 
             }
           </script>
