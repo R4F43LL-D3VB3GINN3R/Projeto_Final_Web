@@ -80,15 +80,25 @@
 
         function redirect2 () {
 
-            window.location.href = 'editar_empregado.php';
             var selectedEmployeeId = document.getElementById('messages').value;
+            
+            if (selectedEmployeeId) {
+
+                window.location.href = 'editar_empregado.php?id=' + selectedEmployeeId;
+
+            }
 
         }
 
         function redirect3 () {
 
-            window.location.href = 'editar_empregado.php';
             var selectedEmployeeId = document.getElementById('messages').value;
+
+            if (selectedEmployeeId) {
+
+            window.location.href = 'empregado_removido.php?id=' + selectedEmployeeId;
+
+            }
 
         }
 
