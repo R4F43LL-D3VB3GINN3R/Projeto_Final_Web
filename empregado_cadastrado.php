@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estado = $_POST['estado'];
 
     $stmt = $conn->prepare("INSERT INTO tab_funcionario (nif, nome, apelido, nome_completo, data_nascimento, sexo, telefone, email, endereco, estado_civil, dependentes, departamento, cargo, tipo_contrato, salario, data_contratacao, estado, atualizacao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
-    $stmt->bind_param('ssssdsssssssssids', $nif, $nome, $apelido, $nome_completo, $data_nascimento, $sexo, $telefone, $email, $endereco, $estado_civil, $dependentes, $departamento, $cargo, $contrato, $salario, $data_contratacao, $estado);
+    $stmt->bind_param('ssssssssssssssiss', $nif, $nome, $apelido, $nome_completo, $data_nascimento, $sexo, $telefone, $email, $endereco, $estado_civil, $dependentes, $departamento, $cargo, $contrato, $salario, $data_contratacao, $estado);
     $stmt->execute();
 
     $sql = "SELECT * FROM tab_funcionario WHERE nome = '$nome'";
