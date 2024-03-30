@@ -112,8 +112,8 @@ if ($result->num_rows > 0) {
         </select>
         <input type="text" name="cargo" value="<?php echo $cargo; ?>">
         <select name="contrato" id="contrato" value="<?php echo $contrato; ?>">
-            <option value="Recibo_verde">Recibo Verde</option>
-            <option value="Prestação_de_serviços">Prestação de Serviços</option>  
+            <option value="Recibo verde">Recibo Verde</option>
+            <option value="Prestação de serviços">Prestação de Serviços</option>  
         </select>
         <input type="text" name="salario" value="<?php echo $salario; ?>">
         <input type="text" name="data_contratacao", value="<?php echo $data_contratacao; ?>">
