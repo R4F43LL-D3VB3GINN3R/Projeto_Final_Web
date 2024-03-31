@@ -18,12 +18,12 @@
                     <a href="cadastro_funcionarios.php"><h1>Area do Funcionário</h1></a>
                 </div>
                 <div class="name2">
-                    <a href="cliente_jogos.php"><img src="Imagens/employees.png" alt=""></a>
-                    <a href="cliente_jogos.php"><h1>Exibição Geral</h1></a>
+                    <a href="exibicao_geral.php"><img src="Imagens/employees.png" alt=""></a>
+                    <a href="exibicao_geral.php"><h1>Exibição Geral</h1></a>
                 </div>
                 <div class="name3">
-                    <a href="exibicao_geral.php"><img src="Imagens/payroll.png" alt=""></a>
-                    <a href="exibicao_geral.php"><h1>Folha de Pagamento</h1></a>
+                    <a href="folha_de_pagamento.php"><img src="Imagens/payroll.png" alt=""></a>
+                    <a href="folha_de_pagamento.php"><h1>Folha de Pagamento</h1></a>
                 </div>
               </section>
         </div>
