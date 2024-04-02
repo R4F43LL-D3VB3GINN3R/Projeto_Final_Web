@@ -79,13 +79,48 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
     </form>
   </div>
   <div class="name2">
-    <form method="post" id="form_salario">
+    <form method="post" id="form_salario" action="folha_de_pagamento2.php">
         <label for="turno">Turno:</label>
         <select name="turno" id="turno_select">
             <option value="Manhã">Manhã</option>
             <option value="Noite">Noite</option>
         </select>
-        <input type="submit" value="Gerar" id="gerar_bt" name="gerar_bt">
+        <label for="salario_bruto">Salário Bruto:</label>
+        <input type="text" name="salario_bruto" id="salario_bruto">
+        <label for="salario_liquido">Salário Bruto:</label>
+        <input type="text" name="salario_liquido" id="salario_liquido">
+        <label for="plano_saude">Plano de Saúde:</label>
+        <select name="plano_saude" id="plano_saude">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <label for="contribuicao_sindical">Contribuição Sindical:</label>
+        <select name="contribuicao_sindical" id="contribuicao_sindical">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <label for="ticket_transporte">Ticket Transporte:</label>
+        <select name="ticket_transporte" id="ticket_transporte">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+        <label for="hora_extra">Horas Extras:</label>
+        <input type="text" name="hora_extra" id="hora_extra">
+        <label for="hora_falta">Horas Faltas:</label>
+        <input type="text" name="hora_falta" id="hora_falta">
+        <label for="deducoes">Deduções Salariais:</label>
+        <input type="text" name="deducoes" id="deducoes">
+        <label for="seguranca_social">Segurança Social:</label>
+        <input type="text" name="seguranca_social" id="seguranca_social">
+        <label for="irs">IRS:</label>
+        <input type="text" name="irs" id="irs">
+        <label for="bonus_salarial">Bônus Salarial:</label>
+        <input type="text" name="bonus_salarial" id="bonus_salarial">
+        <label for="subsidio">Subsídio:</label>
+        <input type="text" name="subsidio" id="subsidio">
+        <label for="atualizacao">Última Atualização:</label>
+        <input type="text" name="atualizacao" id="atualizacao">
+        <input type="submit" value="Gerar Pagamento" id="gerar_bt">
     </form>
 </div>
   <div class="name3">
@@ -102,17 +137,19 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
             $conn = new mysqli($hostname, $username, $pass, $database);
             $sql = "SELECT nome_completo, salario FROM tab_funcionario WHERE id = $selected_id";
             $result = $conn->query($sql);
+
             if ($result->num_rows > 0) {
+
                 $row = $result->fetch_assoc();
                 $salario = $row['salario'];
                 $nome_completo = $row['nome_completo'];
-                echo "<script>document.getElementById('salario').value = '$salario';</script>";
-                echo "<script>document.querySelector('select[name=\"selected_id\"] [value=\"$selected_id\"]').setAttribute('selected', 'selected');</script>";
 
-                // Exemplo de uso da função
-                $selected_id = $_POST['selected_id']; // Obtém o ID selecionado da tabela tab_funcionario
-                $data = get_pagamento_data($selected_id, "localhost", "root", "", "db_devsync");
+                 // Exemplo de uso da função
+                 $selected_id = $_POST['selected_id']; // Obtém o ID selecionado da tabela tab_funcionario
+                 $data = get_pagamento_data($selected_id, "localhost", "root", "", "db_devsync");
 
+                //dados retirados da consulta e do vetor.
+                //separado cada elemento em uma variável.
                 $turno = $data['turno'];
                 $salario_bruto = $data['salario_bruto'];
                 $salario_liquido = $data['salario_liquido'];
@@ -128,23 +165,25 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
                 $subsidio = $data['subsidio'];
                 $atualizacao = $data['atualizacao'];
 
-                echo "Turno: " . $data['turno'] . "<br>";
-                echo "Salário Bruto: " . $data['salario_bruto'] . "<br>";
-                echo "Salário Líquido: " . $data['salario_liquido'] . "<br>";
-                echo "Plano de Saúde: " . $data['plano_saude'] . "<br>";
-                echo "Contribuição Sindical: " . $data['contr_sindical'] . "<br>";
-                echo "Transporte: " . $data['transporte'] . "<br>";
-                echo "Valor Hora Extra: " . $data['valor_horaextra'] . "<br>";
-                echo "Valor Horas Faltas: " . $data['valor_horasfaltas'] . "<br>";
-                echo "Deduções: " . $data['deducoes'] . "<br>";
-                echo "Seguro Social: " . $data['seg_social'] . "<br>";
-                echo "IRS: " . $data['irs'] . "<br>";
-                echo "Bônus Salarial: " . $data['bonus_salarial'] . "<br>";
-                echo "Subsídio: " . $data['subsidio'] . "<br>";
-                echo "Última Atualização: " . $data['atualizacao'] . "<br>";
-
-                // Agora, $data contém os dados da tabela tab_pagamento para o funcionário selecionado
-                // Você pode acessar os valores individualmente usando $data['nome_do_campo']
+                //inputs recebem o valores...
+        
+                echo "<script>document.getElementById('salario').value = '$salario';</script>";
+                echo "<script>document.querySelector('select[name=\"selected_id\"] [value=\"$selected_id\"]').setAttribute('selected', 'selected');</script>";
+                echo "<script>document.getElementById('turno_select').value = '$turno';</script>";
+                echo "<script>document.getElementById('salario_bruto').value = '$salario_bruto';</script>";
+                echo "<script>document.getElementById('salario_liquido').value = '$salario_liquido';</script>";
+                echo "<script>document.getElementById('plano_saude').value = '$plano_saude';</script>";
+                echo "<script>document.getElementById('contribuicao_sindical').value = '$contr_sindical';</script>";
+                echo "<script>document.getElementById('ticket_transporte').value = '$transporte';</script>";
+                echo "<script>document.getElementById('hora_extra').value = '$valor_horaextra';</script>";
+                echo "<script>document.getElementById('hora_falta').value = '$valor_horasfaltas';</script>";
+                echo "<script>document.getElementById('deducoes').value = '$deducoes';</script>";
+                echo "<script>document.getElementById('seguranca_social').value = '$seg_social';</script>";
+                echo "<script>document.getElementById('irs').value = '$irs';</script>";
+                echo "<script>document.getElementById('bonus_salarial').value = '$bonus_salarial';</script>";
+                echo "<script>document.getElementById('subsidio').value = '$subsidio';</script>";
+                echo "<script>document.getElementById('atualizacao').value = '$atualizacao';</script>";
+                
 
             } else {
                 echo "<script>alert('Funcionário não encontrado.');</script>";
