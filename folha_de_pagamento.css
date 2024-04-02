@@ -9,19 +9,19 @@
       "name3 name2 name2" 1fr
       / 1fr 1fr 1fr;
     gap: 8px;
-  }
+}
   
   .name1 { grid-area: name1; }
   .name2 { grid-area: name2; }
   .name3 { grid-area: name3; }
 
-  * {
+* {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: italic;
     font-weight: bold;
-  }
+}
 
-  body {
+body {
     background-color: black;
     height: 700;
     display: flex; 
@@ -44,13 +44,27 @@
 }
 
 .name2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
     border: 4px solid green;
     border-radius: 20px;
+    width: 1000px;
+}
+
+.name2 #turno {
+    grid-column: 1 / span 2;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .name3 {
     border: 4px solid green;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column; /* Empilhar os elementos verticalmente */
+    align-items: center; /* Centralizar os elementos horizontalmente */
+    justify-content: center; /* Centralizar os elementos verticalmente */
 }
 
 .name1:hover, .name2:hover, .name3:hover {
@@ -79,6 +93,7 @@ select:hover {
 label {
     font-size: 25px;
     margin-bottom: 5px;
+    display: block;
 }
 
 #label_salario {
@@ -135,3 +150,22 @@ button:hover {
     margin-left: 100px;
 }
 
+#form_salario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 1000px;
+    border: 2px solid yellow;
+    justify-content: space-between;
+    padding: 40px;
+    flex-direction: center;
+}
+
+#turno_select {
+    width: 400px;
+}
+
+#gerar_bt {
+    height: 40px;
+    border-radius: 10px;
+}
