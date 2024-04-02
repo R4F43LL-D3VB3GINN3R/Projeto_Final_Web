@@ -92,7 +92,6 @@ select:hover {
 
 label {
     font-size: 25px;
-    margin-bottom: 5px;
     display: block;
 }
 
@@ -168,4 +167,7 @@ button:hover {
 #gerar_bt {
     height: 40px;
     border-radius: 10px;
+    align-self: center;
+    margin-left: 250px;
+    margin-top: 50px;
 }
