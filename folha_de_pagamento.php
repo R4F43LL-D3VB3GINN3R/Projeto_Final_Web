@@ -80,6 +80,8 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
   </div>
   <div class="name2">
     <form method="post" id="form_salario" action="folha_de_pagamento2.php">
+        <label for="id">Id:</label>
+        <input type="text" name="id" id="id">
         <label for="turno">Turno:</label>
         <select name="turno" id="turno_select">
             <option value="Manhã">Manhã</option>
@@ -120,6 +122,7 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
         <input type="text" name="subsidio" id="subsidio">
         <label for="atualizacao">Última Atualização:</label>
         <input type="text" name="atualizacao" id="atualizacao">
+        <input type="hidden" name="selected_id" value="<?php echo $selected_id; ?>">
         <input type="submit" value="Gerar Pagamento" id="gerar_bt">
     </form>
 </div>
@@ -166,7 +169,7 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
                 $atualizacao = $data['atualizacao'];
 
                 //inputs recebem o valores...
-        
+                echo "<script>document.getElementById('id').value = '$selected_id';</script>";
                 echo "<script>document.getElementById('salario').value = '$salario';</script>";
                 echo "<script>document.querySelector('select[name=\"selected_id\"] [value=\"$selected_id\"]').setAttribute('selected', 'selected');</script>";
                 echo "<script>document.getElementById('turno_select').value = '$turno';</script>";
