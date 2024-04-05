@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <script>
             function redirect1() {
 
-                window.location.href = "cadastro_funcionarios.php";
+                window.location.href = "rh.php";
 
             }
           </script>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <script>
             function redirect2() {
 
-                window.location.href = "editar_empregado.php";
+                window.location.href = "rh.php";
 
             }
         </script>
