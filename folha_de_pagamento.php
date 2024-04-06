@@ -81,7 +81,7 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
   <div class="name2">
     <form method="post" id="form_salario" action="folha_de_pagamento2.php">
         <label for="id">Id:</label>
-        <input type="text" name="id" id="id">
+        <input type="text" name="id" id="id" ReadOnly="true">
         <label for="turno">Turno:</label>
         <select name="turno" id="turno_select">
             <option value="Manhã">Manhã</option>
@@ -89,7 +89,7 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
         </select>
         <label for="salario_bruto">Salário Bruto:</label>
         <input type="text" name="salario_bruto" id="salario_bruto">
-        <label for="salario_liquido">Salário Bruto:</label>
+        <label for="salario_liquido">Salário Líquido:</label>
         <input type="text" name="salario_liquido" id="salario_liquido">
         <label for="plano_saude">Plano de Saúde:</label>
         <select name="plano_saude" id="plano_saude">
@@ -106,9 +106,13 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
             <option value="Sim">Sim</option>
             <option value="Não">Não</option>
         </select>
-        <label for="hora_extra">Horas Extras:</label>
+        <label for="hora_extra2">Quantidade Horas Extras:</label>
+        <input type="text" name="hora_extra2" id="hora_extra2">
+        <label for="hora_extra">Valor Horas Extras:</label>
         <input type="text" name="hora_extra" id="hora_extra">
-        <label for="hora_falta">Horas Faltas:</label>
+        <label for="hora_falta2">Quantidade Horas Faltas:</label>
+        <input type="text" name="hora_falta2" id="hora_falta2">
+        <label for="hora_falta">Valor Horas Faltas:</label>
         <input type="text" name="hora_falta" id="hora_falta">
         <label for="deducoes">Deduções Salariais:</label>
         <input type="text" name="deducoes" id="deducoes">
@@ -121,7 +125,8 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
         <label for="subsidio">Subsídio:</label>
         <input type="text" name="subsidio" id="subsidio">
         <label for="atualizacao">Última Atualização:</label>
-        <input type="text" name="atualizacao" id="atualizacao">
+        <input type="text" name="atualizacao" id="atualizacao" ReadOnly="true">
+        <input type="hidden" name="salariobase" id="salariobase">
         <input type="hidden" name="selected_id" value="<?php echo $selected_id; ?>">
         <input type="submit" value="Gerar Pagamento" id="gerar_bt">
     </form>
@@ -159,7 +164,9 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
                 $plano_saude = $data['plano_saude'];
                 $contr_sindical = $data['contr_sindical'];
                 $transporte = $data['transporte'];
+                $quant_horaextra = $data['quant_horaextra'];
                 $valor_horaextra = $data['valor_horaextra'];
+                $quant_horasfaltas = $data['quant_horasfaltas'];
                 $valor_horasfaltas = $data['valor_horasfaltas'];
                 $deducoes = $data['deducoes'];
                 $seg_social = $data['seg_social'];
@@ -178,7 +185,9 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
                 echo "<script>document.getElementById('plano_saude').value = '$plano_saude';</script>";
                 echo "<script>document.getElementById('contribuicao_sindical').value = '$contr_sindical';</script>";
                 echo "<script>document.getElementById('ticket_transporte').value = '$transporte';</script>";
+                echo "<script>document.getElementById('hora_extra2').value = '$quant_horaextra';</script>";
                 echo "<script>document.getElementById('hora_extra').value = '$valor_horaextra';</script>";
+                echo "<script>document.getElementById('hora_falta2').value = '$quant_horasfaltas';</script>";
                 echo "<script>document.getElementById('hora_falta').value = '$valor_horasfaltas';</script>";
                 echo "<script>document.getElementById('deducoes').value = '$deducoes';</script>";
                 echo "<script>document.getElementById('seguranca_social').value = '$seg_social';</script>";
@@ -186,6 +195,7 @@ function get_pagamento_data($selected_id, $hostname, $username, $password, $data
                 echo "<script>document.getElementById('bonus_salarial').value = '$bonus_salarial';</script>";
                 echo "<script>document.getElementById('subsidio').value = '$subsidio';</script>";
                 echo "<script>document.getElementById('atualizacao').value = '$atualizacao';</script>";
+                echo "<script>document.getElementById('salariobase').value = '$salario';</script>";
                 
 
             } else {
