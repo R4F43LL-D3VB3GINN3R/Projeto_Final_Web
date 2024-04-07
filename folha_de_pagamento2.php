@@ -141,7 +141,7 @@ function calcImpostos($salario, &$deducts, &$segsoc, &$imp_irs) {
 
     } elseif ($salario >= 3694 && $salario < 5469) {
 
-        $deducts = $deducts + (0.11 * $salario) + (0.28 * $salario);
+        $deducts = $deducts + (0.11 * $salario) + (0.26 * $salario);
         $segsoc = 0.11 * $salario;
         $imp_irs = 0.28 * $salario;
 
@@ -273,5 +273,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
+
 </body>
 </html>
