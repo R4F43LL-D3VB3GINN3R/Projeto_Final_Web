@@ -12,47 +12,39 @@
     <section class="layout">
         <div class="menu1"><a href="admins.php">Admins</a></div>
         <div class="body">
-
             <h2>Seleção de Clientes</h2>
 
             <?php
-
-            $hostname = "localhost";
-            $username = "root";
-            $pass = "";
-            $database = "db_devsync";
-
-            $conn = new mysqli($hostname, $username, $pass, $database);
-
+            //Conecta à base de dados
+            include 'conexao.php';
+            //Executa a Query.
             $sql = "SELECT * FROM tab_pedidos_aceitos WHERE aplicacao = 'Comercial'";
+            //Guarda o resultado da consulta.
             $result = $conn->query($sql);
-
+            //Se o número de linhas em result for maior do que zero...
             if ($result->num_rows > 0) {
-
+                //Cria um array para receber da variável.
                 $clientes = array(); 
-                
-
+                //Enquanto houver dados encontrados...
                 while ($row = $result->fetch_assoc()) {
+                    //Guarda no array os clientes.
                     $clientes[$row['cliente']] = $row['cliente']; 
                 }
-                
-                    echo '<select name="messages" id="messages">';
-                    foreach ($clientes as $cliente => $mensagem) {
-                        echo '<option value="' . $cliente . '">' . $cliente . '</option>';
+                //Cria um dropdown.  
+                echo '<select name="messages" id="messages">';
+                 //Itera sobre o vetor usando o cliente como chave, associando à respectiva mensagem.
+                foreach ($clientes as $cliente => $mensagem) {
+                     //Preenche a dropdown...
+                    echo '<option value="' . $cliente . '">' . $cliente . '</option>';
                 }
-                
                 echo '</select>';
-
             }
-
+            //Encerra a conexão.
             $conn->close();
-
             ?>
 
-            <br><br>
-        
+            <br><br>       
             <button onclick="redirect()" id="Respondido">Ir</button>
-
         </div>
         <div class="menu2"><a href="rh.html">Recursos Humanos</a></div>
         <div class="menu3"><a href="desenvolvimento.html">Desenvolvimento</a></div>
@@ -61,11 +53,12 @@
         <div class="menu6"><a href="sair.html">Sair</a></div>
     </section>
     <script>
+        //Função para redirecionar para outra página.
         function redirect() {
-
+            //Recebe o cliente selecionado.
             var selectedCliente = document.getElementById('messages').value;
+            //Passa cliente selecionado do vetor para por url.
             window.location.href = 'area_comercial.php?cliente=' + selectedCliente;
-
         }
     </script>
 </body>
