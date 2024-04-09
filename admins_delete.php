@@ -9,64 +9,62 @@
 </head>
 <body>
 
-<?php
+    <?php
+    //Conexão com a base de dados.
+    include 'conexao.php';
+    //Se o método for post...
+    if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+        //Recupera dados do formulário.
+        $login_ = $_POST["login"];
+        //Executa a Query SQL.
+        $stmt = $conn->prepare("DELETE FROM tab_admin WHERE login = ?");
+        $stmt->bind_param('s', $login_);
+        $stmt->execute();
+        //Se alguma linha for afetada...
+        if ($stmt->affected_rows > 0) {
 
-$server = "localhost";
-$database = "db_devsync";
-$user = "root";
-$pass = "";
+            ?>
+            <?php // Apresenta caixa de diálogo. ?>
+            <div id="message_div">
+            <h1>Administrador Removido com Sucesso.</h1>
+            <button onclick="redirect1()" id="buttonmessage">Ok</button>
+            </div>  
+            <script>
+            //Função para redirecionar.
+            function redirect1() {
 
-$conn = new mysqli($server, $user, $pass, $database);
+                window.location.href = "admins.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+            }
+            </script>
+             <?php // Do contrário...?>
+    <?php
 
-    $login_ = $_POST["login"];
+    } else {
 
-    $stmt = $conn->prepare("DELETE FROM tab_admin WHERE login = ?");
-    $stmt->bind_param('s', $login_);
-    $stmt->execute();
-
-    if ($stmt->affected_rows > 0) {
-
-        ?>
-
+    ?>  <?php  //Exibe caixa de diálogo. ?>
         <div id="message_div">
-          <h1>Administrador Removido com Sucesso.</h1>
-          <button onclick="redirect1()" id="buttonmessage">Ok</button>
-        </div>  
+            <h1>Não foi possível remover o Administrador</h1>
+            <button onclick="redirect2()" id="buttonmessage">Ok</button>        
+        </div>
         <script>
-          function redirect1() {
+            //Função para redirecionar.
+            function redirect2() {
 
-              window.location.href = "admins.php";
+                window.location.href = "admins.php";
 
-          }
+            }
         </script>
+        </body>
 
-  <?php
+    <?php
 
-  } else {
+    }
+    //Encerra a conexão.
+    $conn->close();
 
-  ?>
-      <div id="message_div">
-          <h1>Não foi possível remover o Administrador</h1>
-          <button onclick="redirect2()" id="buttonmessage">Ok</button>        
-      </div>
-      <script>
-          function redirect2() {
+    }
 
-              window.location.href = "admins.php";
-
-          }
-      </script>
-      </body>
-
-  <?php
-
-  }
-
-  $conn->close();
-
-}
-
-?>
+    ?>
+</body>
 </html>
