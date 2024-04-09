@@ -11,23 +11,19 @@
 <body>  
 
     <?php
-
+        //Recuper a variável pelo método get.
         $cliente = $_GET['cliente'];
-
-        $hostname = "localhost";
-        $username = "root";
-        $pass = "";
-        $database = "db_devsync";
-
-        $conn = new mysqli($hostname, $username, $pass, $database);
-
+        //Conecta à base de dados
+        include 'conexao.php';
+        //Executa a Query.
         $sql = "SELECT * FROM tab_pedidos_aceitos WHERE cliente = '$cliente'";
+        //Guarda o resultado da consulta.
         $result = $conn->query($sql);
-
+        //Se o número de linhas em result for maior do que zero...
         if ($result->num_rows > 0) {
-          
+            //Enquanto houver dados encontrados...
             while ($row = $result->fetch_assoc()) {
-
+                //Guarda em variáveis os resultados da consulta em result.
                 $cliente2 = $row['cliente']; 
                 $email = $row['email']; 
                 $phone = $row['phone']; 
@@ -36,18 +32,16 @@
                 $id = $row['id'];
                 $orcamento = $row['orcamento'];
                 $estado = $row['estado'];
-                $observacoes = $row['observacoes'];
-                
+                $observacoes = $row['observacoes'];               
             }
-
         }
-
     ?>
 
     <section class="layout">
         <div class="name0">
             <form action="cliente_atualizado.php" method="post">
                 <h1>Area do Cliente</h1>
+                <?php //Os imputs são preenchidos com os valores da consulta. ?>
                 <label for="cliente" id="lbl_cliente">Nome:</label>
                 <input type="text" id="cliente" name="cliente" value="<?php echo $cliente2; ?>">
                 <label for="email" id="lbl_email">Email:</label>
@@ -62,6 +56,7 @@
                 <input type="text" id="atualizacao" name="atualizacao" value ="<?php echo $atualizacao; ?>">
                 <label for="estado" id="lbl_estado">Estado:</label>
                 <select id="estado" name="estado">
+                    <?php //Verifica qual o estado da aplicação da consulta e insere à dropdown. ?>
                     <option value="Analise" <?php if ($estado == 'Analise') echo 'selected'; ?>>Análise</option>
                     <option value="Desenvolvimento" <?php if ($estado == 'Desenvolvimento') echo 'selected'; ?>>Desenvolvimento</option>
                     <option value="Devolvido Em Análise" <?php if ($estado == 'Devolvido Em Análise') echo 'selected'; ?>>Devolvido Em Análise</option>
