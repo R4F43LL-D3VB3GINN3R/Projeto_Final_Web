@@ -1,79 +1,110 @@
-* {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/exibicao_geral.css">
+    <title>DevSync-Admin</title>
+    <link rel="icon" href="Imagens/logo_icon.jpg" type="image/x-icon">
+</head>
+<body>
 
-.layout {
-    width: 100%;
-    height: 100%;
-  
-    display: grid;
-    grid:
-      "body body body" 1fr
-      "body body body" 1fr
-      "body body body" 1fr
-      / 1fr 1fr 1fr;
-    gap: 8px;
-}
-  
-.body { grid-area: body; }
+    <?php
+    //Conexão com Base de Dados.
+    include 'conexao.php';
+    //A variável filter é pre-definida como id.
+    $filter = "id"; 
+    //Se a variável não for nula e tiver sido passada por url...
+    if (isset($_GET['filter'])) {
+        // Recebendo o valor do filtro selecionado
+        $filter = $_GET['filter'];
+    }
+    //Executa a Query ordenado pelo valor do filtro.
+    $sql = "SELECT * FROM tab_funcionario ORDER BY $filter ASC";
+    //Guarda os resultados na variável.
+    $result = $conn->query($sql);
+    ?>
 
-body {
-    width: 2500px;
-    height: 100%;
-    background-color: black;
-    display: flex; 
-    justify-content: center;
-  }
+<section class="layout">
+  <div class="body">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NIF</th>
+            <th>Nome</th>
+            <th>Apelido</th>
+            <th>Nome Completo</th>
+            <th>Data de Nascimento</th>
+            <th>Sexo</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Endereço</th>
+            <th>Estado Civil</th>
+            <th>Dependentes</th>
+            <th>Departamento</th>
+            <th>Cargo</th>
+            <th>Tipo de Contrato</th>
+            <th>Salário</th>
+            <th>Data de Contratação</th>
+            <th>Estado</th>
+            <th>Última Atualização</th>
+        </tr>
 
-.body {
-width: 100%;
-height: 100%;
-border: 2px solid rgb(22, 85, 22);
-background-color: rgb(0, 0, 0);
-border-radius: 20px;
-display: flex;
-justify-content:center;
-align-items: center; 
-}
-
-.body:hover {
-    border: 2px solid rgb(0, 252, 0);
-    background-color: rgb(32, 30, 30);
-}
-
-table {
-    width: 100%;
-    height: 100%;
-    color: lime;
-    border: 2px solid lime;
-}
-
-th {
-    border: 5px solid lime;
-    background-color: black;   
-}
-
-td {
-    text-align: center;
-    border: 1px solid lime;
-}
-
-select {
-    width: 30%;
-    height: 30px;
-    border-radius: 20px;
-    text-align: center;
-    background-color: black;
-    border: 2px solid green;
-    color: green;
-}
-
-select:hover {
-    background-color: rgb(33, 29, 29);
-    color: lime;
-    border: 4px solid lime;
-    cursor: pointer;
-}
-
+        <?php
+            //Se o número de linhas em result for maior do que zero...
+            if ($result->num_rows > 0) {
+                //Enquanto houver dados encontrados...
+                while ($row = $result->fetch_assoc()) {
+                    //Desenha a tabela e começa a inserir os resultados da consulta.
+                    echo "<tr>";
+                    echo "<td>" . $row["id"] . "</td>";
+                    echo "<td>" . $row["nif"] . "</td>";
+                    echo "<td>" . $row["nome"] . "</td>";
+                    echo "<td>" . $row["apelido"] . "</td>";
+                    echo "<td>" . $row["nome_completo"] . "</td>";
+                    echo "<td>" . $row["data_nascimento"] . "</td>";
+                    echo "<td>" . $row["sexo"] . "</td>";
+                    echo "<td>" . $row["telefone"] . "</td>";
+                    echo "<td>" . $row["email"] . "</td>";
+                    echo "<td>" . $row["endereco"] . "</td>";
+                    echo "<td>" . $row["estado_civil"] . "</td>";
+                    echo "<td>" . $row["dependentes"] . "</td>";
+                    echo "<td>" . $row["departamento"] . "</td>";
+                    echo "<td>" . $row["cargo"] . "</td>";
+                    echo "<td>" . $row["tipo_contrato"] . "</td>";
+                    echo "<td>" . $row["salario"] . "</td>";
+                    echo "<td>" . $row["data_contratacao"] . "</td>";
+                    echo "<td>" . $row["estado"] . "</td>";
+                    echo "<td>" . $row["atualizacao"] . "</td>";
+                    echo "</tr>";
+                }
+            //Do contrário...
+            } else {
+                //Exibe mensagem.
+                echo "<tr><td colspan='19'>Nenhum funcionário encontrado</td></tr>";
+            }
+        ?>
+    </table>
+  </div>
+    <?php //Envia os valores do formulário... ?>
+    <form method="GET">
+        <?php //Qualquer valor selecionado na dropdown altera o valor da variável filter?>
+        <select name="filter" id="filter" onchange="this.form.submit()">
+                <option value="nome" <?php if ($filter == "nome") echo "selected"; ?>>Nome</option>
+                <option value="sexo" <?php if ($filter == "sexo") echo "selected"; ?>>Sexo</option>
+                <option value="data_nascimento" <?php if ($filter == "data_nascimento") echo "selected"; ?>>Data de Nascimento</option>
+                <option value="dependentes" <?php if ($filter == "dependentes") echo "selected"; ?>>Dependentes</option>
+                <option value="tipo_contrato" <?php if ($filter == "tipo_contrato") echo "selected"; ?>>Tipo de Contrato</option>
+                <option value="salario" <?php if ($filter == "salario") echo "selected"; ?>>Salário</option>
+                <option value="estado" <?php if ($filter == "estado") echo "selected"; ?>>Estado</option>
+        </select>
+  </form>
+  <button onclick="redirect()" value="Voltar">Voltar</button>
+</section>
+</body>
+<script>
+    function redirect() {
+        window.location.href = "rh.html"
+    }
+</script>
+</html>
