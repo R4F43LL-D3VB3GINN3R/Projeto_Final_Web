@@ -9,58 +9,48 @@
     </head>
     <body>
 
-    <?php
-
-    if (isset($_GET['id'])) {
-        // Decodifica a string JSON para um array associativo
-        $funcionario = json_decode($_GET['id'], true);
-        
-        // Verifica se 'id' está presente no array e se possui um valor válido
-        if (isset($funcionario['id'])) {
-            // Acessa o valor do 'id'
-            $id = $funcionario['id'];
-
-        }
-
-    }
-
-    $hostname = "localhost";
-    $username = "root";
-    $pass = "";
-    $database = "db_devsync";
-
-    $conn = new mysqli($hostname, $username, $pass, $database);
-
-    $sql = "SELECT * FROM tab_funcionario WHERE id = '$id'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-    
-        while ($row = $result->fetch_assoc()) {
-
-            $nif = $row['nif']; 
-            $nome = $row['nome'];
-            $apelido = $row['apelido'];
-            $nome_completo = $row['nome_completo'];
-            $data_nascimento = $row['data_nascimento'];
-            $sexo = $row['sexo'];
-            $telefone = $row['telefone'];
-            $email = $row['email'];
-            $endereco = $row['endereco'];
-            $estado_civil = $row['estado_civil'];
-            $dependentes = $row['dependentes'];
-            $departamento = $row['departamento'];
-            $cargo = $row['cargo'];
-            $contrato = $row['tipo_contrato'];
-            $salario = $row['salario'];
-            $data_contratacao = $row['data_contratacao'];
-            $estado = $row['estado'];
-            
-        }
-
-    }
-
-    ?>
+        <?php
+            //Se a variável não for nula e tiver sido passada por url...
+            if (isset($_GET['id'])) {
+                // Decodifica a string JSON para um array associativo
+                $funcionario = json_decode($_GET['id'], true);    
+                // Verifica se 'id' está presente no array e se possui um valor válido
+                if (isset($funcionario['id'])) {
+                    // Guarda o elemento id na variável.
+                    $id = $funcionario['id'];
+                }
+            }
+            //Conexão com Base de Dados.
+            include 'conexao.php';
+            //Executa a Query.
+            $sql = "SELECT * FROM tab_funcionario WHERE id = '$id'";
+            //Guarda o resultado da consulta.
+            $result = $conn->query($sql);
+            //Se o número de linhas em result for maior do que zero...
+            if ($result->num_rows > 0) {
+                //Enquanto houver dados encontrados...
+                while ($row = $result->fetch_assoc()) {
+                    //Guarda os valores da consulta em variáveis.
+                    $nif = $row['nif']; 
+                    $nome = $row['nome'];
+                    $apelido = $row['apelido'];
+                    $nome_completo = $row['nome_completo'];
+                    $data_nascimento = $row['data_nascimento'];
+                    $sexo = $row['sexo'];
+                    $telefone = $row['telefone'];
+                    $email = $row['email'];
+                    $endereco = $row['endereco'];
+                    $estado_civil = $row['estado_civil'];
+                    $dependentes = $row['dependentes'];
+                    $departamento = $row['departamento'];
+                    $cargo = $row['cargo'];
+                    $contrato = $row['tipo_contrato'];
+                    $salario = $row['salario'];
+                    $data_contratacao = $row['data_contratacao'];
+                    $estado = $row['estado'];    
+                }
+            }
+        ?>
 
     <section class="layout">
     <div class="name1">
@@ -83,6 +73,7 @@
         <h2>Estado</h2>
     </div>
     <div class="name2">
+        <?php // Topdos os campos de inputs recebem os valores das variáveis. ?>
         <form action="empregado_editado.php" method="post">
             <input type="text" name="nif" maxlength="9" value="<?php echo $nif; ?>">
             <input type="text" name="nome" value="<?php echo $nome; ?>">
