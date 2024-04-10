@@ -9,33 +9,29 @@
     </head>
     <body>
 
-    <?php
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
-    // Decodifica a string JSON para um array associativo
-    $funcionario = json_decode($_GET['id'], true);
-    
-    // Verifica se 'id' está presente no array e se possui um valor válido
-    if (isset($funcionario['id'])) {
-        // Acessa o valor do 'id'
-        $id = $funcionario['id'];
-
-        $hostname = "localhost";
-        $database = "db_devsync";
-        $username = "root";
-        $password = "";
-
-        $conn = new mysqli($hostname, $username, $password, $database);
-
-        $status = "Inativo";
-
-        $stmt = $conn->prepare("UPDATE tab_funcionario
-                                SET estado = ?
-                                WHERE id = ?");
-        $stmt->bind_param('si', $status, $id);
-        $stmt->execute();
-
-        if ($stmt->affected_rows > 0) {
-?>
+        <?php
+            //Se a variável não for nula e tiver sido passada por url...
+            if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
+                //Decodifica a string JSON para um array associativo
+                $funcionario = json_decode($_GET['id'], true);
+                // Verifica se 'id' está presente no array e se possui um valor válido
+                if (isset($funcionario['id'])) {
+                    // Guarda o elemento id na variável.
+                    $id = $funcionario['id'];
+                    //Conexão com Base de Dados.
+                    include 'conexao.php';
+                    //Os funcionários não são removidos.
+                    //Esta variável foi criada apenas para mudar o seu status.
+                    $status = "Inativo";
+                    //Executa a Query e muda o status do funcionário.
+                    $stmt = $conn->prepare("UPDATE tab_funcionario
+                                            SET estado = ?
+                                            WHERE id = ?");
+                    $stmt->bind_param('si', $status, $id);
+                    $stmt->execute();
+                    //Se o número de linhas em result for maior do que zero...
+                    if ($stmt->affected_rows > 0) {
+        ?>
             <div id="message_div">
                 <h1>Funcionário Removido com Sucesso</h1>
                 <button onclick="redirect1()" id="buttonmessage">Ok</button>
@@ -59,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
             </script>
 <?php
         }
+        //Encerra a conexão
         $conn->close();
     }
 }
