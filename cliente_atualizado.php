@@ -40,7 +40,7 @@
         <script>
             //Função para redirecionar.
             function redirect1() {
-                window.location.href = "cliente_comercial.php";
+                window.location.href = "desenvolvimento.html.php";
             }
         </script>
 
@@ -58,7 +58,7 @@
         <script>
             //Função para redirecionar.
             function redirect2() {
-                window.location.href = "cliente_comercial.php";
+                window.location.href = "desenvolvimento.html.php";
             }
         </script>
 
